@@ -1,0 +1,22 @@
+RADARE2
+
+radare2 -w crackme0x00
+s oxo8048470
+pd 2
+
+we get byte format '740e'
+
+New terminal
+rasm2 -a x86 -b 32 -d '740e'
+we get jz 0x10
+rasm2 -a x86 -b 32 'jmp 0x10'
+eb0e
+
+BACK to old terminal
+
+wx eb0e
+pd 2
+
+Now back to terminal
+./crackme0x00
+
